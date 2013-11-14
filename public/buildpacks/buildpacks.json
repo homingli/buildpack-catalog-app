@@ -1,0 +1,17 @@
+[
+  {
+    "name": "stackato-buildpack-ruby",
+    "url": "https://github.com/ActiveState/stackato-buildpack-ruby",
+    "tags": ["ruby","stackato"]
+  },
+  {
+    "name": "heroku-buildpack-static",
+    "url": "https://github.com/abhishekmunie/heroku-buildpack-static",
+    "tags": ["static","heroku"]
+  },
+  {
+    "name": "stackato-buildpack-python",
+    "url": "https://github.com/ActiveState/stackato-buildpack-python",
+    "tags": ["python","stackato"]
+  }
+]

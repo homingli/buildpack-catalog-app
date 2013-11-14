@@ -1,0 +1,8 @@
+{
+  "name": "stackato-buildpack-python",
+  "url": "https://github.com/ActiveState/stackato-buildpack-python",
+  "tags": [
+    "python",
+    "stackato"
+  ]
+}

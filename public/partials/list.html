@@ -1,0 +1,42 @@
+  <div class="container-fluid">
+    <div class="row-fluid">
+<!--
+      <div class="span12">
+        <nav ng-click="$event.preventDefault()">
+                <a href="#" class="stackato" ng-click="query='stackato'">Stackato</a>
+                <a href="#" class="heroku" ng-click="query='heroku'">Heroku</a>
+                <a href="#" class="cloud-foundry" ng-click="query='cloud-foundry'">Cloud Foundry</a>
+        	<a href="#" class="clear" ng-click="query=''">reset</a>
+        </nav>
+-->
+      <div class="bar">
+        <input ng-model="query" placeholder="Search" />
+      </div>
+      </div>
+    </div>
+    <div class="row-fluid">
+      <div class="span11 buildpacks">
+        <!--Body content-->
+        <p>Found {{(buildpacks | filter:query).length}} of {{buildpacks.length}} buildpacks in catalog.</p>
+        <ul>
+          <li><b>
+            <div class="span3">buildpack.name</a></div>
+            <div class="span2">buildpack.date</div>
+            <div class="span2">buildpack.url</div>
+            <div class="span2">buildpack.tags</div>
+            <div class="span2">buildpack.json</div>
+          </b>
+          </li>
+          <li ng-repeat="buildpack in buildpacks | filter:query | orderBy:'-date'">
+            <div class="span3"><a href="/#/buildpacks/{{buildpack._id}}">{{buildpack.name}}</a></div>
+            <div class="span2">{{buildpack.date | date:'short'}}</div>
+            <div class="span2"><a href="{{buildpack.url}}"><i class="fa fa-external-link"></i></a></div>
+            <div class="span2">
+                <span class="label" ng-repeat-start="tag in buildpack.tags">{{tag}}</span> <span ng-repeat-end></span>
+	    </div>
+            <div class="span2"><a href="/api/buildpacks/{{buildpack._id}}"><i class="fa fa-code"></i></a></div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>

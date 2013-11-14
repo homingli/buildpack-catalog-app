@@ -1,0 +1,10 @@
+{
+    "name": "buildpack-catalog",
+    "author": "Ho Ming Li",
+    "version": "0.0.1",
+    "private": true,
+    "dependencies": {
+        "express": "*",
+        "mongoose": "*"
+    }
+}
