@@ -86,3 +86,9 @@ ul li{
 	color:#6e7a7f;
 	overflow: hidden;
 }
+
+.tag a,
+.tag a:hover {
+  color: #fff;
+  text-decoration: none;
+}

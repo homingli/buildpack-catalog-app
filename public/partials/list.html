@@ -32,7 +32,7 @@
             <div class="span2">{{buildpack.date | date:'short'}}</div>
             <div class="span2"><a href="{{buildpack.url}}"><i class="fa fa-external-link"></i></a></div>
             <div class="span2">
-                <span class="label" ng-repeat-start="tag in buildpack.tags">{{tag}}</span> <span ng-repeat-end></span>
+                <span ng-click="$event.preventDefault()" class="label tag" ng-repeat-start="tag in buildpack.tags"><a ng-click="$parent.$parent.query='{{tag}}'" href="#">{{tag}}</a></span> <span ng-repeat-end></span>
 	    </div>
             <div class="span2"><a href="/api/buildpacks/{{buildpack._id}}"><i class="fa fa-code"></i></a></div>
           </li>
