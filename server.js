@@ -30,6 +30,8 @@ var api = require('./api.js');
 app.post('/api/buildpacks', api.create);
 app.get('/api/buildpacks', api.read);
 app.get('/api/buildpacks/:id', api.read);
+app.put('/api/buildpacks/:id', api.update);
+app.del('/api/buildpacks/:id', api.delete);
 //app.get('/thread/:title.:format?', api.show);
 
 app.listen(port);

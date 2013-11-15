@@ -1,33 +1,39 @@
 <div class="container-fluid">
   <div class="row-fluid">
 
-<form name="newForm">
+<form name="newForm" class="buildpack">
   <div class="control-group" ng-class="{error: newForm.name.$invalid}">
     <label>Name</label>
     <input type="text" name="name" ng-model="buildpack.name" required>
-    <span ng-show="newForm.name.$error.required" class="help-inline">
-        Required</span>
+    <small ng-show="newForm.name.$error.required" class="help-inline">
+        Required</small>
   </div>
  
   <div class="control-group" ng-class="{error: newForm.url.$invalid}">
     <label>URL</label>
-    <input type="url" name="url" ng-model="buildpack.url" required>
-    <span ng-show="newForm.url.$error.required" class="help-inline">
-        Required</span>
-    <span ng-show="newForm.url.$error.url" class="help-inline">
-        Not a URL</span>
+    <input type="url" name="url" ng-model="buildpack.url" ng-pattern="/^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/" required>
+    <small ng-show="newForm.url.$error.required" class="help-inline">
+        Required</small>
+    <small ng-show="newForm.url.$error.url" class="help-inline">
+        Not a URL</small>
+  </div>
+
+  <div class="control-group">
+    <label>Tags</label>
+    <input name="tags" ng-model="buildpack.tags">
+    <label>{{buildpack.tags}}</label>
   </div>
  
   <br />
   <a href="/#/" class="btn">Cancel</a>
-  <button ng-click="save()" ng-disabled="isClean() || newForm.$invalid"
-          class="btn btn-primary">Save</button>
-  <button ng-click="destroy()"
-          ng-show="buildpack.$id" class="btn btn-danger">Delete</button>
+  <button ng-click="save()" ng-disabled="newForm.$pristine || newForm.$invalid"
+          class="btn" ng-class="{'btn-primary': !newForm.$pristine && newForm.$valid}">Save</button>
+  <button ng-click="delete()"
+          ng-show="buildpack._id" class="btn btn-danger">Delete</button>
 
   <br />
   <br />
-  <pre>form = {{buildpack | json}}</pre>
+  <pre>buildpack = {{buildpack | json}}</pre>
 </form>
 
   </div>
