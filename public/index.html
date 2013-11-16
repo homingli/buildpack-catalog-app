@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <title>Buildpack Catalog</title>
   <link rel="stylesheet" href="css/index.css">
-  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="http://bootswatch.com/2/simplex/bootstrap.min.css">
   <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
   <script src="lib/angular/angular.js"></script>
   <script src="lib/angular/angular-route.js"></script>
@@ -14,8 +14,16 @@
   <script src="js/services.js"></script>
 </head>
 <body>
-<h1>Buildpack Catalog</h1>
-<div><a href="/#/">List</a> <a href="/#/buildpacks/new">Add</a></div>
+<div class="navbar">
+  <div class="navbar-inner">  
+    <div class="container"> 
+    <a class="brand" href="#">Buildpack Catalog</a>
+    <ul class="nav">
+      <li><a href="#/buildpacks/new">Add Buildpack</a></li>
+    </ul>
+    </div>
+  </div>
+</div>
 <div ng-view></div>
 </body>
 </html>

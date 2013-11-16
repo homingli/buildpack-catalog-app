@@ -1,23 +1,15 @@
   <div class="container-fluid">
     <div class="row-fluid">
-<!--
-      <div class="span12">
-        <nav ng-click="$event.preventDefault()">
-                <a href="#" class="stackato" ng-click="query='stackato'">Stackato</a>
-                <a href="#" class="heroku" ng-click="query='heroku'">Heroku</a>
-                <a href="#" class="cloud-foundry" ng-click="query='cloud-foundry'">Cloud Foundry</a>
-        	<a href="#" class="clear" ng-click="query=''">reset</a>
-        </nav>
--->
-      <div class="bar">
-        <i ng-click="query=''" class="fa fa-times-circle fa-fw fa-2x"></i>
-        <input ng-model="query" placeholder="Search" class="span5" />
+      <div>
+        <i ng-click="query=''" class="fa fa-times-circle fa-fw"></i>
+        <input ng-model="query" placeholder="Search" class="span11 search-query" />
       </div>
       </div>
     </div>
     <div class="row-fluid">
       <div class="span11 buildpacks">
         <!--Body content-->
+	<br />
         <p>Found {{(buildpacks | filter:query).length}} of {{buildpacks.length}} buildpacks in catalog.</p>
         <ul>
           <li><b>
@@ -33,7 +25,7 @@
             <div class="span2">{{buildpack.date | date:'short'}}</div>
             <div class="span2"><a href="{{buildpack.url}}"><i class="fa fa-external-link"></i></a></div>
             <div class="span2">
-                <span ng-click="$event.preventDefault()" class="label tag" ng-repeat-start="tag in buildpack.tags"><a ng-click="$parent.$parent.query='{{tag}}'" href="#">{{tag}}</a></span> <span ng-repeat-end></span>
+                <span ng-click="$event.preventDefault()" class="label label-info" ng-repeat-start="tag in buildpack.tags"><a ng-click="$parent.$parent.query='{{tag}}'" href="#">{{tag}}</a></span> <span ng-repeat-end></span>
 	    </div>
             <div class="span2"><a href="/api/buildpacks/{{buildpack._id}}"><i class="fa fa-code"></i></a></div>
           </li>
