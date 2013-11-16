@@ -1,6 +1,7 @@
 *{
 	margin:0;
 	padding:0;
+        min-height: 0px !important;
 }
 
 body{
@@ -64,16 +65,13 @@ p {
 
 .bar input{
 	background:#fff no-repeat 13px 13px;
+        display: inline-block !important;
 	border: none;
-	width: 100%;
-	line-height: 19px;
+	line-height: 14px;
 	padding: 11px 0;
 	border-radius: 2px;
 	box-shadow: 0 2px 8px #c4c4c4 inset;
-	text-align: left;
-	font-family: inherit;
-	font-weight: bold;
-	text-indent: 40px;
+	text-indent: 20px;
 }
 
 /*-------------------------
