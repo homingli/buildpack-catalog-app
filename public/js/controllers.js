@@ -43,6 +43,15 @@ buildpackControllers.controller('BuildpackEditCtrl', function BuildpackEditCtrl(
     });
   }
 
+   $scope.addTag = function() {
+     $scope.buildpack.tags.push($scope.tag);
+   };
+ 
+   $scope.removeTag = function(index) {
+     $scope.buildpack.tags.splice(index, 1);
+   };
+
+
   $scope.save = function() {
     $http.put('/api/buildpacks/'+$scope.buildpack._id,$scope.buildpack).
     success(function(data) {
@@ -54,6 +63,18 @@ buildpackControllers.controller('BuildpackEditCtrl', function BuildpackEditCtrl(
 });
 
 buildpackControllers.controller('BuildpackNewCtrl', function BuildpackNewCtrl($scope, $location, $http) {
+
+   // necessary to initialize tags so the addTag works
+   //$scope.buildpack={tags:[]};
+
+   $scope.addTag = function() {
+     $scope.buildpack.tags.push($scope.tag);
+   };
+ 
+   $scope.removeTag = function(index) {
+     $scope.buildpack.tags.splice(index, 1);
+   };
+
   $scope.save = function() {
     $http.post('/api/buildpacks',$scope.buildpack).
     success(function(data) {

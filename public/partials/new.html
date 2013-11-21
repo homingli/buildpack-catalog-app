@@ -20,8 +20,12 @@
 
   <div class="control-group">
     <label>Tags</label>
-    <input name="tags" ng-model="buildpack.tags">
-    <label>{{buildpack.tags}}</label>
+    <input type="hidden" ng-model="buildpack.tags" name="tags" ng-init="buildpack.tags=[]">
+    <!-- <input name="tags" ng-model="buildpack.tags"> -->
+    <input name="tag" ng-model="tag"> [<a href="" ng-click="addTag()">add</a>]
+<div ng-repeat="tag in buildpack.tags">
+    <label>{{tag}} [<a href="" ng-click="removeTag($index)">x</a>]</label> 
+</div>
   </div>
  
   <br />
