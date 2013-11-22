@@ -13,11 +13,11 @@
         <p>Found {{(buildpacks | filter:query).length}} of {{buildpacks.length}} buildpacks in catalog.</p>
         <ul>
           <li><b>
-            <div class="span3">buildpack.name</a></div>
-            <div class="span2">buildpack.date</div>
-            <div class="span2">buildpack.url</div>
-            <div class="span2">buildpack.tags</div>
-            <div class="span2">buildpack.json</div>
+            <div class="span3">.name</a></div>
+            <div class="span2">.date</div>
+            <div class="span2">.url</div>
+            <div class="span2">.tags</div>
+            <div class="span2">.json</div>
           </b>
           </li>
           <li ng-repeat="buildpack in buildpacks | filter:query | orderBy:'-date'">

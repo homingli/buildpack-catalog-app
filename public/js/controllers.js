@@ -5,17 +5,23 @@
 var buildpackControllers = angular.module('buildpackControllers', []);
 
 /* uses Service */
+/*
 buildpackControllers.controller('BuildpackListCtrl', ['$scope','Buildpack', function ($scope, Buildpack,$http) {
    $scope.buildpacks = Buildpack.query();
 }]);
+*/
 
 /* uses http */
-/*buildpackControllers.controller('BuildpackListCtrl', function BuildpackListCtrl($scope, $http) {
+buildpackControllers.controller('BuildpackListCtrl', function BuildpackListCtrl($scope, $http) {
   $http.get('/api/buildpacks').
   success(function(data) {
     $scope.buildpacks = data;
+  }).
+  error(function(data, status, headers, config) {
+    if (data) console.log(data);
+    console.log(status);
   });
-});*/
+});
 
 /*
 buildpackControllers.controller('BuildpackDetailCtrl', 
@@ -57,15 +63,15 @@ buildpackControllers.controller('BuildpackEditCtrl', function BuildpackEditCtrl(
     success(function(data) {
       console.log(data);
       $location.path('buildpacks');
+    }).
+    error(function(err) {
+      console.log(err);
     });
   }
 
 });
 
 buildpackControllers.controller('BuildpackNewCtrl', function BuildpackNewCtrl($scope, $location, $http) {
-
-   // necessary to initialize tags so the addTag works
-   //$scope.buildpack={tags:[]};
 
    $scope.addTag = function() {
      $scope.buildpack.tags.push($scope.tag);

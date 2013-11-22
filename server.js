@@ -17,11 +17,33 @@ if(dbcreds){
   mongoose.connect("127.0.0.1", "bpc", 27017);
 }
 
+mongoose.connection.on('error', function(err) {
+  if (err) { console.log('Mongoose connection error: ' + err); }
+});
+
+// If the Node process ends, close the Mongoose connection
+process.on('SIGINT', function() {
+  mongoose.connection.close(function () {
+    console.log('Mongoose connection disconnected through app termination');
+    process.exit(0);
+  });
+});
+
 app.configure(function(){
+  app.use(express.compress());
   app.use(express.bodyParser());
   app.use(express.methodOverride());
+
+app.use(function(req,res,next) {
+  if(mongoose.connection.readyState) {
+    return next();
+  } else {
+    console.log("Error: Database Not Connected");
+    res.send(500, '<h1>Error 500: Database not connected!</h1>');
+  }
+});
+
   app.use(app.router);
-  app.use(express.compress());
   app.use(express.static(__dirname + '/public'));
 });
 
