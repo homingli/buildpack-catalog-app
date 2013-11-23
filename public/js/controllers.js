@@ -50,11 +50,15 @@ buildpackControllers.controller('BuildpackEditCtrl', function BuildpackEditCtrl(
   }
 
    $scope.addTag = function() {
-     $scope.buildpack.tags.push($scope.tag);
+     if ($scope.tag) {
+       $scope.buildpack.tags.push($scope.tag);
+       $scope.newForm.$setDirty();
+     }
    };
  
    $scope.removeTag = function(index) {
      $scope.buildpack.tags.splice(index, 1);
+     $scope.newForm.$setDirty();
    };
 
 
@@ -74,11 +78,15 @@ buildpackControllers.controller('BuildpackEditCtrl', function BuildpackEditCtrl(
 buildpackControllers.controller('BuildpackNewCtrl', function BuildpackNewCtrl($scope, $location, $http) {
 
    $scope.addTag = function() {
-     $scope.buildpack.tags.push($scope.tag);
+     if ($scope.tag) {
+       $scope.buildpack.tags.push($scope.tag);
+       $scope.newForm.$setDirty();
+     }
    };
  
    $scope.removeTag = function(index) {
      $scope.buildpack.tags.splice(index, 1);
+     $scope.newForm.$setDirty();
    };
 
   $scope.save = function() {
