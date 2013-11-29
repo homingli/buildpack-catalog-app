@@ -4,6 +4,10 @@ var express = require('express');
 var mongoose = require('mongoose');
 var app = express();
 
+var auth = express.basicAuth(function(user, pass, callback) {
+ callback(null, (pass === 'bpcpassword'));
+});
+
 var port = process.env.VCAP_APP_PORT || 3000;
 
 if(process.env.VCAP_SERVICES){
@@ -31,7 +35,8 @@ process.on('SIGINT', function() {
 
 app.configure(function(){
   app.use(express.compress());
-  app.use(express.bodyParser());
+  app.use(express.json());
+  app.use(express.urlencoded());
   app.use(express.methodOverride());
 
 app.use(function(req,res,next) {
@@ -49,11 +54,11 @@ app.use(function(req,res,next) {
 
 // set up the RESTful API, handler methods are defined in api.js
 var api = require('./api.js');
-app.post('/api/buildpacks', api.create);
 app.get('/api/buildpacks', api.read);
+app.post('/api/buildpacks', auth, api.create);
 app.get('/api/buildpacks/:id', api.read);
-app.put('/api/buildpacks/:id', api.update);
-app.del('/api/buildpacks/:id', api.delete);
+app.put('/api/buildpacks/:id', auth, api.update);
+app.del('/api/buildpacks/:id', auth, api.delete);
 //app.get('/thread/:title.:format?', api.show);
 
 app.listen(port);

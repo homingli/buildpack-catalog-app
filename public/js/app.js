@@ -4,7 +4,7 @@
 var bpcApp = angular.module('bpcApp', [
   'ngRoute',
   'buildpackControllers',
-  //'buildpackFilters',
+  'buildpackFilters',
   'bpcServices'
 ]);
 

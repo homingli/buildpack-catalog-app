@@ -24,8 +24,18 @@
     <!-- <input name="tags" ng-model="buildpack.tags"> -->
     <input name="tag" ng-model="tag"> [<a href="" ng-click="addTag()">add</a>]
 <div ng-repeat="tag in buildpack.tags">
-    <label>{{tag}} [<a href="" ng-click="removeTag($index)">x</a>]</label> 
+    <label class="label label-info">{{tag}} [<a href="" ng-click="removeTag($index)">x</a>]</label> 
 </div>
+  </div>
+
+   <div class="control-group" ng-init="buildpack.works_on={heroku:false,stackato:false,cf:false}">
+    <label>Works on</label>
+    <span ng-repeat="(paas,works) in buildpack.works_on">
+      <label class="checkbox" for="{{paas}}">
+        <input type="checkbox" ng-model="buildpack.works_on[paas]" name="group"  />
+        {{ paas }}
+      </label>
+    </span>
   </div>
  
   <br />

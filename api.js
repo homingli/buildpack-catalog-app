@@ -9,6 +9,7 @@ exports.create = function(req, res) {
 	date: req.body.date,
         author: req.body.author,
         url: req.body.url,
+        works_on: req.body.works_on,
         tags: req.body.tags 
     }).save(function(err,buildpack) {
         res.send(buildpack);

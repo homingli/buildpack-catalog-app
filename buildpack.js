@@ -10,6 +10,11 @@ var buildpackSchema = new Schema({
     date: {type: Date, default: Date.now},
     author: {type: String, default: 'Anon'},
     url: {type: String, required: true},
+    works_on: {
+	heroku: { type: Boolean, default: false},
+	stackato: { type: Boolean, default: false},
+	cf: { type: Boolean, default: false}
+    },
     tags: [String]
 });
 
