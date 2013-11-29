@@ -13,27 +13,29 @@
         <p>Found {{(buildpacks | filter:query).length}} of {{buildpacks.length}} buildpacks in catalog.</p>
         <ul>
           <li><b>
-            <div class="span1">.json</div>
+            <div class="span1">.json .url</div>
             <div class="span3">.name</a></div>
-            <div class="span2">.date</div>
-            <div class="span1">.url</div>
-            <div class="span3">.tags</div>
             <div class="span1">.works_on</div>
+            <div class="span3">.tags</div>
+            <div class="span2">.date</div>
           </b>
           </li>
           <li ng-repeat="buildpack in buildpacks | filter:query | orderBy:'-date'">
-            <div class="span1"><a href="/api/buildpacks/{{buildpack._id}}"><i class="fa fa-code"></i></a></div>
-            <div class="span3"><a href="/#/buildpacks/{{buildpack._id}}">{{buildpack.name}}</a></div>
-            <div class="span2">{{buildpack.date | date:'short'}}</div>
-            <div class="span1"><a href="{{buildpack.url}}"><i class="fa fa-external-link"></i></a></div>
-            <div class="span3">
-                <span ng-click="$event.preventDefault()" class="label label-info" ng-repeat-start="tag in buildpack.tags"><a ng-click="$parent.$parent.query='{{tag}}'" href="#">{{tag}}</a></span> <span ng-repeat-end></span>
+            <div class="span1">
+		<a href="/api/buildpacks/{{buildpack._id}}"><i class="fa fa-code"></i></a> 
+		<a href="{{buildpack.url}}"><i class="fa fa-external-link"></i></a> 
+		<a href="/#/buildpacks/{{buildpack._id}}"><i class="fa fa-pencil"></i></a> 
 	    </div>
+            <div class="span3">{{buildpack.name}}</div>
             <div class="span1">
 		<div ng-repeat="(paas,works) in buildpack.works_on">
 		{{ works | checkmark }} {{ paas }}
 		</div>
 	    </div>
+            <div class="span3">
+                <span ng-click="$event.preventDefault()" class="label label-info" ng-repeat-start="tag in buildpack.tags"><a ng-click="$parent.$parent.query='{{tag}}'" href="#">{{tag}}</a></span> <span ng-repeat-end></span>
+	    </div>
+            <div class="span2">{{buildpack.date | date:'short'}}</div>
 
           </li>
         </ul>

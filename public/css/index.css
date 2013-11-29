@@ -14,6 +14,10 @@ section, footer, header, aside, nav{
 	display: block;
 }
 
+.search-query {
+	height: 2.5em;
+}
+
 /*-------------------------
 	The menu
 --------------------------*/
@@ -86,7 +90,8 @@ ul li{
 }
 
 .label a,
-.label a:hover {
+.label a:hover,
+.label a:visited {
   color: #fff;
   text-decoration: none;
 }
