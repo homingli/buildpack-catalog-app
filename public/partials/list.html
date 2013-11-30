@@ -33,7 +33,7 @@
 		</div>
 	    </div>
             <div class="span3">
-                <span ng-click="$event.preventDefault()" class="label label-info" ng-repeat-start="tag in buildpack.tags"><a ng-click="$parent.$parent.query='{{tag}}'" href="#">{{tag}}</a></span> <span ng-repeat-end></span>
+                <span ng-click="$event.preventDefault()" class="label label-info" ng-repeat-start="tag in buildpack.tags track by $index"><a ng-click="$parent.$parent.query='{{tag}}'" href="#">{{tag}}</a></span> <span ng-repeat-end></span>
 	    </div>
             <div class="span2">{{buildpack.date | date:'short'}}</div>
 
