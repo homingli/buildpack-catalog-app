@@ -15,7 +15,7 @@
     <input type="url" name="url" ng-model="buildpack.url" ng-pattern="/^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/" required>
     <small ng-show="newForm.url.$error.required" class="help-inline">
         Required</small>
-    <small ng-show="newForm.url.$error.url" class="help-inline">
+    <small ng-show="newForm.url.$error.pattern" class="help-inline">
         Not a URL</small>
   </div>
 
