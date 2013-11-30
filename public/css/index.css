@@ -18,6 +18,10 @@ section, footer, header, aside, nav{
 	height: 2.5em;
 }
 
+.cursor-pointer {
+	cursor: pointer;
+}
+
 /*-------------------------
 	The menu
 --------------------------*/
@@ -91,6 +95,7 @@ ul li{
 
 .label a,
 .label a:hover,
+.label a:active,
 .label a:visited {
   color: #fff;
   text-decoration: none;
