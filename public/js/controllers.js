@@ -71,7 +71,19 @@ buildpackControllers.controller('BuildpackEditCtrl', function BuildpackEditCtrl(
     error(function(err) {
       console.log(err);
     });
-  }
+  };
+
+  $scope.$eval(function() {
+
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'buildpack-catalog';
+        var disqus_identifier = $routeParams.bpid;
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  });
 
 });
 
@@ -95,5 +107,5 @@ buildpackControllers.controller('BuildpackNewCtrl', function BuildpackNewCtrl($s
       console.log(data);
       $location.path('buildpacks');
     });
-  }
+  };
 });
