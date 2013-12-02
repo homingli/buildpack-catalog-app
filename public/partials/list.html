@@ -15,7 +15,7 @@
           <li><b>
             <div class="span1">.json .url</div>
             <div class="span3">.name</a></div>
-            <div class="span1">.works_on</div>
+            <div class="span3">.works_on</div>
             <div class="span3">.tags</div>
             <div class="span2">.date</div>
           </b>
@@ -27,13 +27,13 @@
 		<a href="/#/buildpacks/{{buildpack._id}}"><i class="fa fa-pencil"></i></a> 
 	    </div>
             <div class="span3"><a href="/#/buildpacks/view/{{buildpack._id}}">{{buildpack.name}}</a></div>
-            <div class="span1">
-		<div ng-repeat="(paas,works) in buildpack.works_on">
+            <div class="span3">
+		<label class="label" ng-class="{'label-success': works, 'label-important': !works}" ng-repeat="(paas,works) in buildpack.works_on">
 		{{ works | checkmark }} {{ paas }}
-		</div>
+		</label>
 	    </div>
             <div class="span3">
-                <span ng-click="$event.preventDefault()" class="label label-info" ng-repeat-start="tag in buildpack.tags track by $index"><a ng-click="$parent.$parent.query='{{tag}}'" href="#">{{tag}}</a></span> <span ng-repeat-end></span>
+                <span ng-click="$event.preventDefault()" class="label" ng-repeat-start="tag in buildpack.tags track by $index"><a ng-click="$parent.$parent.query='{{tag}}'" href="#">{{tag}}</a></span> <span ng-repeat-end></span>
 	    </div>
             <div class="span2">{{buildpack.date | date:'short'}}</div>
 
