@@ -26,7 +26,7 @@
 		<a href="{{buildpack.url}}"><i class="fa fa-external-link"></i></a> 
 		<a href="/#/buildpacks/{{buildpack._id}}"><i class="fa fa-pencil"></i></a> 
 	    </div>
-            <div class="span3">{{buildpack.name}}</div>
+            <div class="span3"><a href="/#/buildpacks/view/{{buildpack._id}}">{{buildpack.name}}</a></div>
             <div class="span1">
 		<div ng-repeat="(paas,works) in buildpack.works_on">
 		{{ works | checkmark }} {{ paas }}

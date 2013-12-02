@@ -19,6 +19,10 @@ bpcApp.config(['$routeProvider',
         templateUrl: 'partials/new.html',
         controller: 'BuildpackEditCtrl'
       }).
+      when('/buildpacks/view/:bpid', {
+        templateUrl: 'partials/view.html',
+        controller: 'BuildpackEditCtrl'
+      }).
       when('/buildpacks/', {
         templateUrl: 'partials/list.html',
         controller: 'BuildpackListCtrl'

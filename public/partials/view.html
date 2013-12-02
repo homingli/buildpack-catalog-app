@@ -1,0 +1,48 @@
+<div class="container-fluid" ng-model="buildpack">
+
+  <div class="row-fluid">
+
+  <div class="span5 control-group" ng-class="{error: newForm.name.$invalid}">
+    <label>Name: {{ buildpack.name }}</label>
+  </div>
+ 
+  <div class="span5 control-group" ng-class="{error: newForm.url.$invalid}">
+    <label>URL: {{ buildpack.url }}</label>
+  </div>
+
+  </div>
+
+  <div class="row-fluid">
+
+  <div class="span5 control-group">
+    <label>Tags</label>
+    <label ng-repeat="tag in buildpack.tags track by $index" class="label label-info">{{tag}}</label> 
+  </div>
+
+   <div class="span5 control-group">
+    <label>Works on</label>
+    <div class="btn-group">
+        <label class="label"
+	    ng-repeat="(paas,works) in buildpack.works_on"
+            ng-class="{'label-success': works, 'label-important': !works}">
+            {{ works | checkmark }}
+            {{ paas }}
+        </label>
+    </div>
+  </div>
+ 
+  </div>
+  <!-- <pre>buildpack = {{buildpack | json}}</pre> -->
+</form>
+
+<!-- Disqus -->
+<div id="disqus_wrapper" ng-show="buildpack._id">
+ <div id="disqus_thread"></div>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+</div> 
+<!-- end Disqus -->
+
+  </div>
+</div>
