@@ -26,9 +26,8 @@
     <label>Tags</label>
     <input type="hidden" ng-model="buildpack.tags" name="tags" ng-init="buildpack.tags=[]">
     <input name="tag" ng-model="tag"> <span class="cursor-pointer" ng-click="addTag()"><i class="fa fa-plus-square fa-fw"></i></span>
-<div ng-repeat="tag in buildpack.tags track by $index">
-    <label class="label label-info">{{tag}} <i class="fa fa-times-circle" ng-click="removeTag($index)"></i></label> 
-</div>
+    <br /><br />
+    <label ng-repeat="tag in buildpack.tags track by $index" class="label label-info">{{tag}} <i class="fa fa-times-circle" ng-click="removeTag($index)"></i></label> 
   </div>
 
    <div class="span5 control-group" ng-init="buildpack.works_on={heroku:false,stackato:false,cf:false}">
