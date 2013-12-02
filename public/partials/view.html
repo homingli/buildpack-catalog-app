@@ -1,25 +1,22 @@
 <div class="container-fluid" ng-model="buildpack">
 
   <div class="row-fluid">
-
-  <div class="span5 control-group" ng-class="{error: newForm.name.$invalid}">
-    <label>Name: {{ buildpack.name }}</label>
+  <h1>{{ buildpack.name }}</h1>
+  <h4><a href="{{ buildpack.url }}">{{ buildpack.url }}</a></h4>
   </div>
- 
-  <div class="span5 control-group" ng-class="{error: newForm.url.$invalid}">
-    <label>URL: <a href="{{ buildpack.url }}">{{ buildpack.url }}</a></label>
+  <div class="row-fluid">
+  Author: {{ buildpack.author }}
   </div>
-
-  </div>
+  <br />
 
   <div class="row-fluid">
 
-  <div class="span5 control-group">
+  <div class="span5">
     <label>Tags</label>
     <label ng-repeat="tag in buildpack.tags track by $index" class="label label-info">{{tag}}</label> 
   </div>
 
-   <div class="span5 control-group">
+   <div class="span5">
     <label>Works on</label>
     <div class="btn-group">
         <label class="label"
@@ -33,7 +30,9 @@
  
   </div>
   <!-- <pre>buildpack = {{buildpack | json}}</pre> -->
-</form>
+
+  <br />
+  <br />
 
 <!-- Disqus -->
 <div id="disqus_wrapper" ng-show="buildpack._id">
