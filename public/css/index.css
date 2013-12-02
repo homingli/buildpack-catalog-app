@@ -100,3 +100,7 @@ ul li{
   color: #fff;
   text-decoration: none;
 }
+
+.label {
+  padding: 0.2em 0.6em 0.3em !important;
+}
