@@ -2,10 +2,11 @@
 
 var express = require('express');
 var mongoose = require('mongoose');
+var creds = require('./credentials.json');
 var app = express();
 
 var auth = express.basicAuth(function(user, pass, callback) {
- callback(null, (pass === 'bpcpassword'));
+ callback(null, (user === creds.username && pass === creds.password));
 });
 
 var port = process.env.VCAP_APP_PORT || 3000;

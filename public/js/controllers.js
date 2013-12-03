@@ -16,6 +16,7 @@ buildpackControllers.controller('BuildpackListCtrl', function BuildpackListCtrl(
   $http.get('/api/buildpacks').
   success(function(data) {
     $scope.buildpacks = data;
+    document.title="Buildpack Catalog";
   }).
   error(function(data, status, headers, config) {
     if (data) console.log(data);
