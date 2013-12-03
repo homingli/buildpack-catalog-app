@@ -23,16 +23,6 @@ buildpackControllers.controller('BuildpackListCtrl', function BuildpackListCtrl(
   });
 });
 
-/*
-buildpackControllers.controller('BuildpackDetailCtrl', 
-  ['$scope', '$routeParams', 'Buildpack' ,function($scope, $routeParams, Buildpack) {
-    $scope.buildpack = Buildpack.get({bpid: $routeParams.bpid}, function(data) {
-      $scope.buildpack = data;
-    });
-  }]
-);
-*/
-
 buildpackControllers.controller('BuildpackEditCtrl', function BuildpackEditCtrl($scope, $routeParams, $location, $http) {
   var bpurl = '/api/buildpacks/'+$routeParams.bpid;
 
