@@ -72,20 +72,32 @@ buildpackControllers.controller('BuildpackEditCtrl', function BuildpackEditCtrl(
       console.log(err);
     });
   };
+});
 
-  $scope.$eval(function() {
+buildpackControllers.controller('BuildpackViewCtrl', function BuildpackViewCtrl($scope, $routeParams, $location, $http) {
 
-        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+  var bpurl = '/api/buildpacks/'+$routeParams.bpid;
+
+  $http.get(bpurl).
+  success(function(data) {
+    $scope.buildpack = data;
+
         var disqus_shortname = 'buildpack-catalog';
-        var disqus_identifier = $routeParams.bpid;
+        var disqus_url = document.URL;
+	var disqus_identifier = $location.path();
+        document.title=$scope.buildpack.name;
+        var disqus_title=$scope.buildpack.name;
 
-        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
             dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+
   });
 
 });
+
 
 buildpackControllers.controller('BuildpackNewCtrl', function BuildpackNewCtrl($scope, $location, $http) {
 

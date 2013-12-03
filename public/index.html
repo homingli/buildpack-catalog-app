@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en" ng-app="bpcApp">
 <head>
+<base href="/">
   <meta charset="utf-8">
   <title>Buildpack Catalog</title>
   <link rel="stylesheet" href="css/index.css">
@@ -18,9 +19,9 @@
 <div class="navbar">
   <div class="navbar-inner">  
     <div class="container"> 
-    <a class="brand" href="#">Buildpack Catalog</a>
+    <a class="brand" href="/#!/">Buildpack Catalog</a>
     <ul class="nav">
-      <li><a href="#/buildpacks/new">Add Buildpack</a></li>
+      <li><a href="#!/buildpacks/new">Add Buildpack</a></li>
       <li><a href="https://devcenter.heroku.com/articles/buildpacks" target="_blank">Heroku Buildpack Docs</a></li>
       <li><a href="http://docs.stackato.com/deploy/buildpack.html" target="_blank">Stackato Buildpack Docs</a></li>
       <li><a href="http://docs.cloudfoundry.com/docs/using/deploying-apps/buildpacks.html" target="_blank">Cloud Foundry Buildpack Docs</a></li>
