@@ -1,7 +1,7 @@
 <div class="container-fluid" ng-model="buildpack">
 
   <div class="row-fluid">
-  <h1>{{ buildpack.name }}</h1>
+  <h1>{{ buildpack.name }} <a class="btn" href="/#!/buildpacks/{{buildpack._id}}"><i class="fa fa-pencil"></i></a></h1>
   <h4><a href="{{ buildpack.url }}">{{ buildpack.url }}</a></h4>
   </div>
   <div class="row-fluid">
