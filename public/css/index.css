@@ -93,6 +93,10 @@ ul li{
 	overflow: hidden;
 }
 
+ul li:hover{
+        background-color: #eee;
+}
+
 .label a,
 .label a:hover,
 .label a:active,
