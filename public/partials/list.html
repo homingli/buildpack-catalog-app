@@ -23,7 +23,7 @@
           </li>
           <li ng-repeat="buildpack in buildpacks | filter:query | orderBy:'-date'">
             <div class="span1">
-		<a href="/api/buildpacks/{{buildpack._id}}"><i class="fa fa-code"></i></a> 
+		<a href="/api/buildpacks/{{buildpack._id}}" target="_self"><i class="fa fa-code"></i></a> 
 		<a href="{{buildpack.url}}"><i class="fa fa-external-link"></i></a> 
 		<a href="/#!/buildpacks/{{buildpack._id}}"><i class="fa fa-pencil"></i></a> 
 	    </div>

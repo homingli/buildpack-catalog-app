@@ -33,7 +33,7 @@
    <div class="span5 control-group" ng-init="buildpack.works_on={heroku:false,stackato:false,cf:false}">
     <label>Works on</label>
     <div class="btn-group">
-        <label class="btn btn-lg btn-warning"
+        <label class="btn btn-lg btn-info"
 	    ng-repeat="(paas,works) in buildpack.works_on"
             ng-click="buildpack.works_on[paas]=!buildpack.works_on[paas];newForm.$setDirty()"
             ng-class="{active:works}">
