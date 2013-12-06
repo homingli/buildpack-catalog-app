@@ -12,16 +12,40 @@ buildpackControllers.controller('BuildpackListCtrl', ['$scope','Buildpack', func
 */
 
 /* uses http */
-buildpackControllers.controller('BuildpackListCtrl', function BuildpackListCtrl($scope, $http) {
+buildpackControllers.controller('BuildpackListCtrl', function BuildpackListCtrl($scope, $http, $filter) {
   $http.get('/api/buildpacks').
   success(function(data) {
     $scope.buildpacks = data;
     document.title="Buildpack Catalog";
+
+  $scope.currentPage = 1;
+  $scope.numPerPage = 5;
+
+  $scope.setPage = function (pageNo) {
+    $scope.currentPage = pageNo;
+    var filtered_list = $filter('filter')($scope.buildpacks,$scope.query);
+    $scope.totalItems = filtered_list.length;
+    var offset = ($scope.currentPage - 1) * $scope.numPerPage;
+    $scope.data = filtered_list.slice(offset,offset + $scope.numPerPage);
+  };
+
+  $scope.rePaginate = function (q) {
+    $scope.currentPage = 1;
+    var filtered_list = $filter('filter')($scope.buildpacks,q);
+    $scope.totalItems = filtered_list.length;
+    var offset = ($scope.currentPage - 1) * $scope.numPerPage;
+    $scope.data = filtered_list.slice(offset,offset + $scope.numPerPage);
+  };
+
+  $scope.$watch( 'query', $scope.rePaginate );
+  $scope.$watch( 'currentPage', $scope.setPage );
+
   }).
   error(function(data, status, headers, config) {
     if (data) console.log(data);
     console.log(status);
   });
+
 });
 
 buildpackControllers.controller('BuildpackEditCtrl', function BuildpackEditCtrl($scope, $routeParams, $location, $http) {

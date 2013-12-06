@@ -10,6 +10,7 @@
       <div class="span11">
         <!--Body content-->
 	<br />
+<pagination items-per-page="numPerPage" total-items="totalItems" page="currentPage" class="pagination-small pull-right" previous-text="&lsaquo;" next-text="&rsaquo;"></pagination>
         <h4 class="text-center">Found {{(buildpacks | filter:query).length}} of {{buildpacks.length}} buildpacks in catalog.</h4>
 	<br />
         <ul>
@@ -21,7 +22,7 @@
             <div class="span2">.date</div>
           </b>
           </li>
-          <li ng-repeat="buildpack in buildpacks | filter:query | orderBy:'-date'">
+          <li ng-repeat="buildpack in data | orderBy:'-date'">
             <div class="span1">
 		<a href="/api/buildpacks/{{buildpack._id}}" target="_self" data-toggle="tooltip" title="json"><i class="fa fa-code fa-fw"></i></a> 
 		<a href="{{buildpack.url}}" data-toggle="tooltip" title="link"><i class="fa fa-external-link fa-fw"></i></a> 
@@ -40,6 +41,11 @@
 
           </li>
         </ul>
+
+<pagination items-per-page="numPerPage" total-items="totalItems" page="currentPage" class="pagination-small pull-right" previous-text="&lsaquo;" next-text="&rsaquo;"></pagination>
+
+      <!-- END BODY -->
       </div>
+
     </div>
   </div>

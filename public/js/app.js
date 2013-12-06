@@ -3,6 +3,7 @@
 /* App Module */
 var bpcApp = angular.module('bpcApp', [
   'ngRoute',
+  'ui.bootstrap',
   'buildpackControllers',
   'buildpackFilters',
   'bpcServices'
