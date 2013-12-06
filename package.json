@@ -5,6 +5,7 @@
     "private": true,
     "dependencies": {
         "express": "*",
-        "mongoose": "*"
+        "mongoose": "*",
+        "s3": "*"
     }
 }

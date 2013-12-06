@@ -23,6 +23,11 @@
   <div class="row-fluid">
 
   <div class="span5 control-group">
+    <label>Author</label>
+    <input type="author" name="author" ng-model="buildpack.author">
+  </div>
+
+  <div class="span5 control-group">
     <label>Tags</label>
     <input type="hidden" ng-model="buildpack.tags" name="tags" ng-init="buildpack.tags=[]">
     <input name="tag" ng-model="tag"> <span class="cursor-pointer" ng-click="addTag()"><i class="fa fa-plus-square fa-fw"></i></span>
