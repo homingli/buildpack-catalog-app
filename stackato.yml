@@ -4,4 +4,4 @@ services:
   ${name}-backups : filesystem
 ignores: ["node_modules", ".git"]
 cron:
-  - "0 */12 * * * node $HOME/backup.js >> $HOME/backup.log 2>&1"
+  - "0 */3 * * * node $HOME/backup.js >> $HOME/backup.log 2>&1"

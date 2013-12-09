@@ -4,7 +4,6 @@
         <i ng-click="query=''" class="cursor-pointer fa fa-times-circle fa-fw"></i>
         <input ng-model="query" placeholder="Search" class="span11 search-query" />
       </div>
-      </div>
     </div>
     <div class="row-fluid">
       <div class="span11">
@@ -23,9 +22,9 @@
           </li>
           <li ng-repeat="buildpack in data | orderBy:'-date'">
             <div class="span1">
-		<a href="/api/buildpacks/{{buildpack._id}}" target="_self" data-toggle="tooltip" title="json"><i class="fa fa-code fa-fw"></i></a> 
-		<a href="{{buildpack.url}}" data-toggle="tooltip" title="link"><i class="fa fa-external-link fa-fw"></i></a> 
-		<a href="/#!/buildpacks/{{buildpack._id}}" data-toggle="tooltip" title="edit"><i class="fa fa-pencil fa-fw"></i></a> 
+		<a href="/api/buildpacks/{{buildpack._id}}" target="_self"><span tooltip-placement="right" tooltip-popup-delay="200" tooltip="JSON"><i class="fa fa-code fa-fw"></i></span></a> 
+		<a href="{{buildpack.url}}"><span tooltip-placement="right" tooltip-popup-delay="200" tooltip="{{buildpack.url}}"><i class="fa fa-external-link fa-fw"></span></i></a> 
+		<a href="/#!/buildpacks/{{buildpack._id}}"><span tooltip-placement="left" tooltip-popup-delay="200" tooltip="Edit"><i class="fa fa-pencil fa-fw"></i></span></a> 
 	    </div>
             <div class="span3"><a href="/#!/buildpacks/view/{{buildpack._id}}">{{buildpack.name}}</a></div>
             <div class="span3">
@@ -41,7 +40,7 @@
           </li>
         </ul>
 
-<pagination items-per-page="numPerPage" total-items="totalItems" page="currentPage" class="pagination-small pull-right" previous-text="&lsaquo;" next-text="&rsaquo;"></pagination>
+  <pagination items-per-page="numPerPage" total-items="totalItems" page="currentPage" class="pagination-small cursor-pointer pull-right" previous-text="&lsaquo;" next-text="&rsaquo;"></pagination>
 
       <!-- END BODY -->
       </div>

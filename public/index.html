@@ -8,15 +8,6 @@
   <link rel="stylesheet" href="css/index.css">
   <link rel="stylesheet" href="http://bootswatch.com/2/simplex/bootstrap.min.css">
   <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
-  <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
-  <script src="lib/angular/angular.js"></script>
-  <script src="lib/angular/angular-route.js"></script>
-  <script src="lib/angular/angular-resource.js"></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.6.0/ui-bootstrap-tpls.min.js"></script>
-  <script src="js/app.js"></script>
-  <script src="js/controllers.js"></script>
-  <script src="js/services.js"></script>
-  <script src="js/filters.js"></script>
 </head>
 <body>
 <div class="navbar">
@@ -28,11 +19,28 @@
       <li><a href="https://devcenter.heroku.com/articles/buildpacks" target="_blank">Heroku Buildpack Docs</a></li>
       <li><a href="http://docs.stackato.com/deploy/buildpack.html" target="_blank">Stackato Buildpack Docs</a></li>
       <li><a href="http://docs.cloudfoundry.com/docs/using/deploying-apps/buildpacks.html" target="_blank">Cloud Foundry Buildpack Docs</a></li>
-
     </ul>
+<br />
+<span class="cursor-pointer pull-right" tooltip-placement="left" tooltip-popup-delay="10" tooltip="Would you like to contribute? Reach out to homingli@activestate.com" tooltip-trigger="click"><i class="fa fa-question"></i></span>
+
     </div>
   </div>
 </div>
 <div ng-view></div>
+
+<footer>
+<small class="muted pull-left">Data is regularly backed up to Amazon S3.</small>
+<small class="muted pull-right">&copy; All Rights Reserved. </small>
+</footer> 
+
+  <script src="lib/angular/angular.js"></script>
+  <script src="lib/angular/angular-route.js"></script>
+  <script src="lib/angular/angular-resource.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.6.0/ui-bootstrap-tpls.min.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/controllers.js"></script>
+  <script src="js/services.js"></script>
+  <script src="js/filters.js"></script>
+
 </body>
 </html>

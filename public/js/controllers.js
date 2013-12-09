@@ -19,7 +19,7 @@ buildpackControllers.controller('BuildpackListCtrl', function BuildpackListCtrl(
     document.title="Buildpack Catalog";
 
   $scope.currentPage = 1;
-  $scope.numPerPage = 5;
+  $scope.numPerPage = 20;
 
   $scope.setPage = function (pageNo) {
     $scope.currentPage = pageNo;
