@@ -1,16 +1,14 @@
   <div class="container-fluid">
     <div class="row-fluid">
-      <div>
+      <div class="span12 text-center well">
         <i ng-click="query=''" class="cursor-pointer fa fa-times-circle fa-fw"></i>
-        <input ng-model="query" placeholder="Search" class="span11 search-query" />
+        <input ng-model="query" placeholder="Search" class="span6 search-query" />
+        <h4 class="text-center">Found {{(buildpacks | filter:query).length}} of {{buildpacks.length}} buildpacks in catalog.</h4>
       </div>
     </div>
     <div class="row-fluid">
-      <div class="span11">
+      <div class="span12">
         <!--Body content-->
-	<br />
-        <h4 class="text-center">Found {{(buildpacks | filter:query).length}} of {{buildpacks.length}} buildpacks in catalog.</h4>
-	<br />
         <ul>
           <li><b>
             <div class="span1">&nbsp;</div>
