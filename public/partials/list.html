@@ -1,8 +1,10 @@
   <div class="container-fluid">
     <div class="row-fluid">
-      <div class="span12 text-center well">
-        <i ng-click="query=''" class="cursor-pointer fa fa-times-circle fa-fw"></i>
-        <input ng-model="query" placeholder="Search" class="span6 search-query" />
+      <div class="span12 text-center well form-search">
+        <div class="input-prepend span8">
+          <span ng-click="query=null" class="btn add-on cursor-pointer"><i class="fa fa-times-circle"></i></span>
+          <input type="text" ng-model="query" placeholder="Search" class="span6 search-query" />
+        </div>
         <h4 class="text-center">Found {{(buildpacks | filter:query).length}} of {{buildpacks.length}} buildpacks in catalog.</h4>
       </div>
     </div>

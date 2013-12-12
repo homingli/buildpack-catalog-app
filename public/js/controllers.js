@@ -136,3 +136,23 @@ buildpackControllers.controller('BuildpackNewCtrl', function BuildpackNewCtrl($s
     });
   };
 });
+
+buildpackControllers.controller('BuildpackListGithubReposCtrl', ['$scope','BuildpackRepos', function ($scope, BuildpackRepos) {
+
+    // Instantiate an object to store your scope data in (Best Practices)
+    $scope.myData = {
+      currentBuildpack: null,
+      BuildpackList: [],
+      BuildpackListPage: 1,
+      BuildpackSearchTerm: ''
+    };
+
+    $scope.setBuildpackList = function() {
+      BuildpackRepos.get({page: $scope.myData.BuildpackListPage,q: $scope.myData.BuildpackSearchTerm},function(data) {
+        $scope.myData.BuildpackList = data.items;
+      });
+    };
+
+    $scope.setBuildpackList();
+
+}]);

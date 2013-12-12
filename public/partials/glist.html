@@ -1,0 +1,37 @@
+<div class="well" ng-show="myData.currentBuildpack == null">
+  <form class="form-search">
+    <div class="input-append">
+      <input type="text" ng-model="myData.BuildpackSearchTerm" class="span2 search-query" placeholder="Search Github">
+      <button ng-click="setBuildpackList()" class="btn">Search</button> 
+      <input type="text" ng-model="filterText" class="span2 search-query" placeholder="Filter current page">
+      <button ng-click="filterText = null" class="btn">Clear Filter</button>
+    </div>
+  </form>
+  <div ng-repeat="Buildpack in myData.BuildpackList | filter:filterText">
+       <pre class="span5"><img ng-src="{{Buildpack.owner.avatar_url}}&s=16" style="width:16px" /> <a ng-href="{{ Buildpack.html_url }}">{{ Buildpack.full_name }}</a>
+       created: {{ Buildpack.created_at | date:short }} - updated: {{ Buildpack.updated_at | date:short }}</pre>
+  </div>
+</div>
+
+<!--
+<div class="well" ng-show="myData.currentBuildpack != null">
+  <a ng-click="showAll()">&laquo Back</a>
+  <h4>{{myData.Buildpack.title}}</h4>
+  <dl class="dl-horizontal">
+    <dt>Number</dt>
+    <dd>{{myData.currentIssue.number}}</dd>
+    <dt>Date</dt>
+    <dd>{{myData.currentIssue.created_at | date:'short'}}</dd>
+    <dt>Last Update</dt>
+    <dd>{{myData.currentIssue.updated_at | date:'short'}}</dd>
+    <dt>State</dt>
+    <dd>{{myData.currentIssue.state}}</dd>
+    <dt>URL</dt>
+    <dd>{{myData.currentIssue.url}}</dd>
+    <dt>Asignee</dt>
+    <dd>{{myData.currentIssue.asignee}}</dd>
+    <dt>Body</dt>
+    <dd>{{myData.currentIssue.body}}</dd>
+  </dl>
+</div>
+-->
