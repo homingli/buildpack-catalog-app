@@ -13,7 +13,7 @@ bpcServices.factory('Buildpack', ['$resource',
 );
 
 bpcServices.factory('BuildpackRepos', function($resource){
-    return $resource('https://api.github.com/search/repositories?q=buildpack+:q&per_page=100&page=:page', {page: '@page', q: '@q'}, {
+    return $resource('https://api.github.com/search/repositories?q=buildpack+:q&per_page=:perpage&page=:page', {page: '@page', q: '@q', perpage: '@perpage'}, {
       get: {method:'GET', cache: true}
     });
 });

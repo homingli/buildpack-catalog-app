@@ -1,16 +1,21 @@
 <div class="well" ng-show="myData.currentBuildpack == null">
   <form class="form-search">
     <div class="input-append">
-      <input type="text" ng-model="myData.BuildpackSearchTerm" class="span2 search-query" placeholder="Search Github">
+      <input type="text" ng-model="myData.BuildpackSearchTerm" class="span3 search-query" placeholder="Search Github Buildpacks">
       <button ng-click="setBuildpackList()" class="btn">Search</button> 
       <input type="text" ng-model="filterText" class="span2 search-query" placeholder="Filter current page">
       <button ng-click="filterText = null" class="btn">Clear Filter</button>
     </div>
+    <div ng-click="updateBuildpackList('p');" class="btn">Prev Page</div> 
+    <div ng-click="updateBuildpackList('n');" class="btn">Next Page</div> 
+    Page <span ng-bind="myData.BuildpackListPage"></span>
+    Found <span ng-bind="myData.BuildpackListTotal"></span>
   </form>
   <div ng-repeat="Buildpack in myData.BuildpackList | filter:filterText">
-       <pre class="span5"><img ng-src="{{Buildpack.owner.avatar_url}}&s=16" style="width:16px" /> <a ng-href="{{ Buildpack.html_url }}">{{ Buildpack.full_name }}</a>
+       <pre class="span5" ng-show="Buildpack"><img ng-src="{{Buildpack.owner.avatar_url}}&s=16" style="width:16px" /> <a ng-href="{{ Buildpack.html_url }}">{{ Buildpack.full_name }}</a>
        created: {{ Buildpack.created_at | date:short }} - updated: {{ Buildpack.updated_at | date:short }}</pre>
   </div>
+  <pre ng-cloak ng-hide="Object.keys(myData.error).length==0">ERROR {{ myData.error.status }}: {{ myData.error.data.message }}</pre>
 </div>
 
 <!--

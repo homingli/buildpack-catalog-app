@@ -143,14 +143,44 @@ buildpackControllers.controller('BuildpackListGithubReposCtrl', ['$scope','Build
     $scope.myData = {
       currentBuildpack: null,
       BuildpackList: [],
+      BuildpackListTotal: 0,
+      BuildpackListPerPage: 50,
       BuildpackListPage: 1,
-      BuildpackSearchTerm: ''
+      BuildpackSearchTerm: '',
+      error: {}
     };
 
     $scope.setBuildpackList = function() {
-      BuildpackRepos.get({page: $scope.myData.BuildpackListPage,q: $scope.myData.BuildpackSearchTerm},function(data) {
+      BuildpackRepos.get({
+        page: $scope.myData.BuildpackListPage,
+        q: $scope.myData.BuildpackSearchTerm,
+        perpage: $scope.myData.BuildpackListPerPage
+      },
+      function(data) {
         $scope.myData.BuildpackList = data.items;
+        $scope.myData.BuildpackListTotal = data.total_count;
+        $scope.myData.error = {};
+      },
+      function(error) {
+        console.error(error.status, ':', error.data.message);
+        $scope.myData.BuildpackList = [];
+        $scope.myData.error = error;
       });
+    };
+    
+    $scope.Object = Object; // for Object.keys()
+
+    $scope.updateBuildpackList = function(direction) {
+      if (direction=='p' && $scope.myData.BuildpackListPage > 1) {
+        $scope.myData.BuildpackListPage--;
+      }
+      else if (direction=='n') {
+        $scope.myData.BuildpackListPage++;
+      }
+      else {
+        return;
+      }
+      $scope.setBuildpackList();
     };
 
     $scope.setBuildpackList();
