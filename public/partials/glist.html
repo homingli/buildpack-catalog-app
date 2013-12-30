@@ -11,7 +11,7 @@
     Page <span ng-bind="myData.BuildpackListPage"></span>
     Found <span ng-bind="myData.BuildpackListTotal"></span>
   </form>
-  <div ng-repeat="Buildpack in myData.BuildpackList | filter:filterText">
+  <div ng-repeat="Buildpack in myData.BuildpackList | filter:filterText | orderBy:'-updated_at'">
        <pre class="span5" ng-show="Buildpack"><img ng-src="{{Buildpack.owner.avatar_url}}&s=16" style="width:16px" /> <a ng-href="{{ Buildpack.html_url }}">{{ Buildpack.full_name }}</a>
        created: {{ Buildpack.created_at | date:short }} - updated: {{ Buildpack.updated_at | date:short }}</pre>
   </div>
