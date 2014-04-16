@@ -16,8 +16,11 @@ Why?
 - Basic interface for tagging and viewing buildpack
 - Github listing of last updated buildpacks (currently using unauthenticated API, ie low limits)
 
+###Using
+- Basic Auth needs a credentials.json with username/password keys ie {"username":"john","password":"smith"}
+
 ###TODO
-- need backend Cont Deployment for testing buildpacks and updating DB
+- need backend Continuous Deployment for testing buildpacks and updating DB
 - sync/pull-in new buildpacks from github instead of manual entries
 - more comprehensive auth system?
 
@@ -36,7 +39,7 @@ Backend:
 
 ###Hosting
 
-Temporarily hosted on [Stackato] at http://buildpack-catalog.stacka.to
+Hosted on [Stackato] at http://buildpack-catalog.stacka.to
 
 ###License
 MIT
